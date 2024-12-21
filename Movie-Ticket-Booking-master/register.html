@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/backbone.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/prima.css">
+    <title>Movie Seat Reservation - Register</title>
+</head>
+<body>
+    <!-- Registration Section -->
+    <div class="container">
+        <div class="text-center">
+            <label id="title">MOVIE SEAT RESERVATION - REGISTER</label>
+        </div>
+        <form class="form-inline registerForm" id="registerForm">
+            <div class="form-group required">
+                <label for="registerName">Full Name:</label>
+                <input type="text" class="form-control" id="registerName" placeholder="John Doe" required />
+            </div>
+            <div class="form-group required">
+                <label for="registerEmail">Email:</label>
+                <input type="email" class="form-control" id="registerEmail" placeholder="email@example.com" required />
+            </div>
+            <div class="form-group required">
+                <label for="registerPassword">Password:</label>
+                <input type="password" class="form-control" id="registerPassword" placeholder="********" required />
+            </div>
+            <div class="form-group required">
+                <label for="registerConfirmPassword">Confirm Password:</label>
+                <input type="password" class="form-control" id="registerConfirmPassword" placeholder="********" required />
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-primary btn-lg submitBtn" id="registerBtn">Register</button>
+            </div>
+            <div class="text-center">
+                <label class="error" style="color:red;"></label>
+            </div>
+        </form>
+        <div class="text-center">
+            <label>Already have an account? </label><a href="login.html">Login here</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // Basic registration validation
+        $('#registerBtn').on('click', function() {
+            var name = $('#registerName').val();
+            var email = $('#registerEmail').val();
+            var password = $('#registerPassword').val();
+            var confirmPassword = $('#registerConfirmPassword').val();
+
+            if(name === "" || email === "" || password === "" || confirmPassword === "") {
+                $('.error').text("Please fill out all fields.");
+                return;
+            }
+
+            if(password !== confirmPassword) {
+                $('.error').text("Passwords do not match.");
+                return;
+            }
+
+            // Mock registration (replace with actual server-side registration logic)
+            alert("Registration successful!");
+            // Redirect to login page after successful registration
+            window.location.href = "login.html";  // Assuming login page after registration
+        });
+    </script>
+</body>
+</html>
